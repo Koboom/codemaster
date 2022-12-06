@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>My Website</h1>
+        <p>Tutorial Paylaşımları</p>
+    </div>
+
+    <div class="topnav">
+        <button class="tablink" onclick="openPage('Home', this, 'red')">Home</button>
+        <button class="tablink" onclick="openPage('Html', this, 'green')" id="defaultOpen">HTML</button>
+        <button class="tablink" onclick="openPage('Css', this, 'blue')">CSS</button>
+        <button class="tablink" onclick="openPage('JavaScript', this, 'orange')">JavaScript</button>
+    </div>
+    <div id="Home" class="tabcontent">
+        <h3>Deneme Yazıları buraya gelecek</h3>
+    </div>
+    <div id="Html" class="tabcontent">
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">London</button>
+            <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+            <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+          </div>
+          <div id="London" class="tabcontent">
+            <h3>London</h3>
+            <p>London is the capital city of England.</p>
+          </div>
+          
+          <div id="Paris" class="tabcontent">
+            <h3>Paris</h3>
+            <p>Paris is the capital of France.</p> 
+          </div>
+          
+          <div id="Tokyo" class="tabcontent">
+            <h3>Tokyo</h3>
+            <p>Tokyo is the capital of Japan.</p>
+          </div>
+    </div>
+    <div id="Css" class="tabcontent">
+
+    </div>
+    <div id="JavaScript" class="tabcontent">
+
+    </div>
+
+
+    <script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+</body>
+</html>
